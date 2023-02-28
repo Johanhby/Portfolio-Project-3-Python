@@ -20,4 +20,20 @@ class Board:
             ship_row = randint(0, 4)
             ship_column = randint(0, 4)
             if (ship_row, ship_column) not in self.ships:
-                self.ships.append((ship_row, ship_column))             
+                self.ships.append((ship_row, ship_column))
+
+    def strike_location(self):
+        while True:
+            self.strike_row = input('Please select a ship row between numbers 1-5 to strike')
+            while self.strike_row not in '12345':
+                print('Please enter a valid number between 1-5')
+                self.strike_row = input('Please select a ship row between 1-5 to strike')
+                break
+
+        while True:
+            self.strike_column = input('Please select a ship column between numbers 1-5 to strike')
+            while self.strike_column not in '12345':
+                print('Please enter a valid number between 1-5')
+                self.strike_column = input('Please select a ship column between 1-5 to strike')
+                break    
+                        
