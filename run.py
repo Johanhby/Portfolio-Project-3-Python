@@ -1,11 +1,18 @@
 from random import randint
 
+player_score = 0
+computer_score = 0
+
 class Board:
     def __init__(self):
         self.column = []
         self.row = []
         self.struck_locations = []
         self.ships = []
+
+"""
+A function to create a 2d 5x5 game board.
+"""
 
     def create_board(self):
         for y in range(5):
@@ -60,5 +67,16 @@ A function with while loops asking for input for strike coordinates. Another nes
             print('You have already struck this location')
             return True
         else:
-            return False           
+            return False
+
+    def hit_or_miss(self, row, column):
+        if (row, column) in self.ships:
+            print("You struck a ship!")
+            self.ships.remove((row, column))
+            self.column[row][column] = '@'
+            return True
+        else:
+            print("You missed!")
+            self.column[row][column] = 'X'
+            return False                   
                         
