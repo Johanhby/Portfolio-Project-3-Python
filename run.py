@@ -35,5 +35,9 @@ class Board:
             while self.strike_column not in '12345':
                 print('Please enter a valid number between 1-5')
                 self.strike_column = input('Please select a ship column between 1-5 to strike')
-                break    
+                break
+
+        row = int(self.strike_row) - 1
+        column = int(self.strike_column) - 1
+        return row, column        
                         
