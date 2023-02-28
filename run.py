@@ -39,5 +39,7 @@ class Board:
 
         row = int(self.strike_row) - 1
         column = int(self.strike_column) - 1
-        return row, column        
+
+        if not self.already_struck(row, column):
+            return row, column    
                         
