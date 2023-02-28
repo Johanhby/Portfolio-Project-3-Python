@@ -69,6 +69,10 @@ A function with while loops asking for input for strike coordinates. Another nes
         else:
             return False
 
+"""
+A function to determine if the strike was a hit or a miss.
+"""
+
     def hit_or_miss(self, row, column):
         if (row, column) in self.ships:
             print("You struck a ship!")
@@ -78,5 +82,25 @@ A function with while loops asking for input for strike coordinates. Another nes
         else:
             print("You missed!")
             self.column[row][column] = 'X'
-            return False                   
+            return False
+
+# Increments the score of the player by 1 point in case of a hit.
+
+    def increment_score(self):
+        player_score = 0
+        for row in self.column:
+            for column in row:
+                if column == '@':
+                    player_score += 1
+        return player_score
+
+# Increments the score of the computer by 1 point in case of a hit.
+
+    def increment_score(self):
+        computer_score = 0
+        for row in self.column:
+            for column in row:
+                if column == '@':
+                    computer_score += 1
+        return computer_score                               
                         
